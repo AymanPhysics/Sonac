@@ -1,0 +1,1 @@
+alter table Purchase add IsPosted int

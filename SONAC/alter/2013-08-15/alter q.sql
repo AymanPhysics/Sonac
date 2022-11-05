@@ -1,0 +1,1 @@
+alter table Attendance add State int,StateName varchar(100) ,StateShortName varchar(10) 
