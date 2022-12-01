@@ -13,12 +13,12 @@ Public Class Employees
     Private Sub BasicForm_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs) Handles Me.Loaded
         If bm.TestIsLoaded(Me) Then Return
 
-        TabControl1.Visibility = Windows.Visibility.Hidden
-        Doctor.Visibility = Windows.Visibility.Hidden
-        Nurse.Visibility = Windows.Visibility.Hidden
-        Receptionist.Visibility = Windows.Visibility.Hidden
-        lblTax.Visibility = Windows.Visibility.Hidden
-        Tax.Visibility = Windows.Visibility.Hidden
+        TabControl1.Visibility = Visibility.Hidden
+        Doctor.Visibility = Visibility.Hidden
+        Nurse.Visibility = Visibility.Hidden
+        Receptionist.Visibility = Visibility.Hidden
+        lblTax.Visibility = Visibility.Hidden
+        Tax.Visibility = Visibility.Hidden
 
 
         bm.Fields = New String() {SubId, "ArName", "Address", "DateOfBirth", "DepartmentId", "Notes", "Nurse", "Receptionist", "Manager", "SystemUser", "NationalId", "HomePhone", "Mobile", "Email", "Password", "EnName", "LevelId", "Doctor", "Stopped", "HiringDate", "Duration", "Cnt", "hh", "mm", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "IsSalary", "IsFreelancer", "LateAllowance", "Allowance", "SpAllowance", "FromHH", "ToHH", "FromMM", "ToMM", "Salary", "ConsultationPrice", "DetectionPrice", "SalaryOnly", "ShiftsOnly", "SalaryOrShifts", "ShiftCount", "ShiftValue", "Tax", "Bonus", "Insurance", "Annual", "NoofDaysOff", "NoofMonthlyExecuses", "HolidayWorkValue", "DelayValue", "OvertimeValue", "IsFixedHours", "TotalHours", "TotalMinutes", "HasAttendance", "MainJobId", "SubJobId", "TaxAccNo"}
@@ -347,41 +347,41 @@ Public Class Employees
         If IsSalary.IsChecked Then
             LblSalaryType.Content = ("Salary")
             lblLE3.Content = ("L.E.")
-            LateAllowance.Visibility = Windows.Visibility.Visible
-            FromHH.Visibility = Windows.Visibility.Visible
-            ToHH.Visibility = Windows.Visibility.Visible
-            FromMM.Visibility = Windows.Visibility.Visible
-            ToMM.Visibility = Windows.Visibility.Visible
-            lblLateAllowance.Visibility = Windows.Visibility.Visible
-            lblMinutes2.Visibility = Windows.Visibility.Visible
+            LateAllowance.Visibility = Visibility.Visible
+            FromHH.Visibility = Visibility.Visible
+            ToHH.Visibility = Visibility.Visible
+            FromMM.Visibility = Visibility.Visible
+            ToMM.Visibility = Visibility.Visible
+            lblLateAllowance.Visibility = Visibility.Visible
+            lblMinutes2.Visibility = Visibility.Visible
 
-            IsFixedHours.Visibility = Windows.Visibility.Visible
-            lblFromHH.Visibility = Windows.Visibility.Visible
-            lblToHH.Visibility = Windows.Visibility.Visible
-            lblFromMM.Visibility = Windows.Visibility.Visible
-            lblToMM.Visibility = Windows.Visibility.Visible
-            lblFrom.Visibility = Windows.Visibility.Visible
-            lblTo.Visibility = Windows.Visibility.Visible
+            IsFixedHours.Visibility = Visibility.Visible
+            lblFromHH.Visibility = Visibility.Visible
+            lblToHH.Visibility = Visibility.Visible
+            lblFromMM.Visibility = Visibility.Visible
+            lblToMM.Visibility = Visibility.Visible
+            lblFrom.Visibility = Visibility.Visible
+            lblTo.Visibility = Visibility.Visible
 
         Else
             LblSalaryType.Content = ("Perc")
             lblLE3.Content = "%"
-            LateAllowance.Visibility = Windows.Visibility.Hidden
-            FromHH.Visibility = Windows.Visibility.Hidden
-            ToHH.Visibility = Windows.Visibility.Hidden
-            FromMM.Visibility = Windows.Visibility.Hidden
-            ToMM.Visibility = Windows.Visibility.Hidden
-            lblLateAllowance.Visibility = Windows.Visibility.Hidden
-            lblMinutes2.Visibility = Windows.Visibility.Hidden
+            LateAllowance.Visibility = Visibility.Hidden
+            FromHH.Visibility = Visibility.Hidden
+            ToHH.Visibility = Visibility.Hidden
+            FromMM.Visibility = Visibility.Hidden
+            ToMM.Visibility = Visibility.Hidden
+            lblLateAllowance.Visibility = Visibility.Hidden
+            lblMinutes2.Visibility = Visibility.Hidden
 
-            IsFixedHours.Visibility = Windows.Visibility.Hidden
+            IsFixedHours.Visibility = Visibility.Hidden
             IsFixedHours.IsChecked = False
-            lblFromHH.Visibility = Windows.Visibility.Hidden
-            lblToHH.Visibility = Windows.Visibility.Hidden
-            lblFromMM.Visibility = Windows.Visibility.Hidden
-            lblToMM.Visibility = Windows.Visibility.Hidden
-            lblFrom.Visibility = Windows.Visibility.Hidden
-            lblTo.Visibility = Windows.Visibility.Hidden
+            lblFromHH.Visibility = Visibility.Hidden
+            lblToHH.Visibility = Visibility.Hidden
+            lblFromMM.Visibility = Visibility.Hidden
+            lblToMM.Visibility = Visibility.Hidden
+            lblFrom.Visibility = Visibility.Hidden
+            lblTo.Visibility = Visibility.Hidden
 
         End If
 
@@ -432,16 +432,16 @@ Public Class Employees
         TotalHours.IsEnabled = True
         TotalMinutes.IsEnabled = True
 
-        lblFrom.Visibility = Windows.Visibility.Hidden
-        lblTo.Visibility = Windows.Visibility.Hidden
-        lblFromHH.Visibility = Windows.Visibility.Hidden
-        lblToHH.Visibility = Windows.Visibility.Hidden
-        lblFromMM.Visibility = Windows.Visibility.Hidden
-        lblToMM.Visibility = Windows.Visibility.Hidden
-        FromHH.Visibility = Windows.Visibility.Hidden
-        ToHH.Visibility = Windows.Visibility.Hidden
-        FromMM.Visibility = Windows.Visibility.Hidden
-        ToMM.Visibility = Windows.Visibility.Hidden
+        lblFrom.Visibility = Visibility.Hidden
+        lblTo.Visibility = Visibility.Hidden
+        lblFromHH.Visibility = Visibility.Hidden
+        lblToHH.Visibility = Visibility.Hidden
+        lblFromMM.Visibility = Visibility.Hidden
+        lblToMM.Visibility = Visibility.Hidden
+        FromHH.Visibility = Visibility.Hidden
+        ToHH.Visibility = Visibility.Hidden
+        FromMM.Visibility = Visibility.Hidden
+        ToMM.Visibility = Visibility.Hidden
 
     End Sub
 
@@ -451,16 +451,16 @@ Public Class Employees
         TotalHours.IsEnabled = False
         TotalMinutes.IsEnabled = False
 
-        lblFrom.Visibility = Windows.Visibility.Visible
-        lblTo.Visibility = Windows.Visibility.Visible
-        lblFromHH.Visibility = Windows.Visibility.Visible
-        lblToHH.Visibility = Windows.Visibility.Visible
-        lblFromMM.Visibility = Windows.Visibility.Visible
-        lblToMM.Visibility = Windows.Visibility.Visible
-        FromHH.Visibility = Windows.Visibility.Visible
-        ToHH.Visibility = Windows.Visibility.Visible
-        FromMM.Visibility = Windows.Visibility.Visible
-        ToMM.Visibility = Windows.Visibility.Visible
+        lblFrom.Visibility = Visibility.Visible
+        lblTo.Visibility = Visibility.Visible
+        lblFromHH.Visibility = Visibility.Visible
+        lblToHH.Visibility = Visibility.Visible
+        lblFromMM.Visibility = Visibility.Visible
+        lblToMM.Visibility = Visibility.Visible
+        FromHH.Visibility = Visibility.Visible
+        ToHH.Visibility = Visibility.Visible
+        FromMM.Visibility = Visibility.Visible
+        ToMM.Visibility = Visibility.Visible
 
     End Sub
 

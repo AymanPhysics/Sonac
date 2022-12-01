@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="214" d:DesignWidth="443">
+             d:DesignHeight="258.4" d:DesignWidth="678.2">
     <Grid Background="{DynamicResource Bg}">
         <Grid Margin="5,5,5,50">
             <Grid.Background>
@@ -38,7 +38,8 @@
                 </ComboBox.Background>
             </ComboBox>
         </Grid>
-        <Button Content="دخول" HorizontalAlignment="Center"  Name="btnLogin" TabIndex="3" VerticalAlignment="Bottom" Width="380" Margin="32,0,31,5" IsDefault="True" Style="{StaticResource GlossyCloseButton}" Height="41" Foreground="Black" Background="{DynamicResource BgSave}"/>
+        <Button Content="دخول" HorizontalAlignment="Center"  Name="btnLogin" TabIndex="3" VerticalAlignment="Bottom" Width="380" Margin="0,0,0,5" IsDefault="True" Style="{StaticResource GlossyCloseButton}" Height="41" Foreground="Black" Background="{DynamicResource BgSave}"/>
+        <Button Content="Edit Connection" HorizontalAlignment="Right"  x:Name="btnEditCurrentConnection" TabIndex="3" VerticalAlignment="Bottom" Width="166" Margin="0,0,10,5"  Style="{StaticResource GlossyCloseButton}" Height="41" Foreground="Black" Background="{DynamicResource BgSave}" FontSize="18" IsTabStop="False"/>
 
 
     </Grid>

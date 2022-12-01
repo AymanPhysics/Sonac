@@ -187,7 +187,7 @@ Partial Public Class MainPage
                 Dim item As TabItem = CType(tab.Items(i), TabItem)
 
                 If dt.Rows(0)(CType(tab.Items(i), TabItem).Name).ToString = "" Then
-                    item.Visibility = Windows.Visibility.Collapsed
+                    item.Visibility = Visibility.Collapsed
                 Else
                     item.Visibility = IIf(dt.Rows(0)(item.Name), Visibility.Visible, Visibility.Collapsed)
                 End If
@@ -196,7 +196,7 @@ Partial Public Class MainPage
                 For x As Integer = 0 To CType(CType(item.Content, ScrollViewer).Content, WrapPanel).Children.Count - 1
                     Dim t As RadioButton = CType(CType(CType(item.Content, ScrollViewer).Content, WrapPanel).Children(x), RadioButton)
                     If dt.Rows(0)(t.Name).ToString = "" Then
-                        t.Visibility = Windows.Visibility.Collapsed
+                        t.Visibility = Visibility.Collapsed
                     Else
                         t.Visibility = IIf(dt.Rows(0)(t.Name), Visibility.Visible, Visibility.Collapsed)
                     End If
@@ -204,7 +204,7 @@ Partial Public Class MainPage
             Next
 
             For i As Integer = 0 To tab.Items.Count - 1
-                If CType(tab.Items(i), TabItem).Visibility = Windows.Visibility.Visible Then
+                If CType(tab.Items(i), TabItem).Visibility = Visibility.Visible Then
                     CType(tab.Items(i), TabItem).IsSelected = True
                     Exit For
                 End If

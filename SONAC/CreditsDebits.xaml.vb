@@ -20,12 +20,12 @@ Public Class CreditsDebits
         bm.KeyFields = New String() {SubId}
         bm.Table_Name = TableName
         If LinkFile = 5 Or LinkFile = 6 Then
-            Address.Visibility = Windows.Visibility.Hidden
-            lblAddress.Visibility = Windows.Visibility.Hidden
-            Mobile.Visibility = Windows.Visibility.Hidden
-            lblMobile.Visibility = Windows.Visibility.Hidden
-            Tel.Visibility = Windows.Visibility.Hidden
-            lblTel.Visibility = Windows.Visibility.Hidden
+            Address.Visibility = Visibility.Hidden
+            lblAddress.Visibility = Visibility.Hidden
+            Mobile.Visibility = Visibility.Hidden
+            lblMobile.Visibility = Visibility.Hidden
+            Tel.Visibility = Visibility.Hidden
+            lblTel.Visibility = Visibility.Hidden
         End If
         btnNew_Click(sender, e)
     End Sub

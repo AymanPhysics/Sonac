@@ -11,7 +11,7 @@
         TextBlock1.Text = MyTabHeader
         CheckBox1.Visibility = WithClose
         CheckBox1.IsTabStop = False
-        If CheckBox1.Visibility = Windows.Visibility.Hidden Then
+        If CheckBox1.Visibility = Visibility.Hidden Then
             TextBlock1.Margin = New Thickness(0)
         End If
     End Sub

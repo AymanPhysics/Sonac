@@ -33,7 +33,7 @@ Public Class Purchase
         bm.KeyFields = k
 
         bm.Table_Name = TableName
-        IsPosted.Visibility = Windows.Visibility.Hidden
+        IsPosted.Visibility = Visibility.Hidden
         btnNew_Click(sender, e)
     End Sub
 

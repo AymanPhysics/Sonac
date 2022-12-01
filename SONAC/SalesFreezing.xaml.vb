@@ -79,13 +79,13 @@ Public Class SalesFreezing
         End If
 
         If Not Flag = FlagState.صرف_نهائى Then
-            GDis.Visibility = Windows.Visibility.Hidden
+            GDis.Visibility = Visibility.Hidden
         End If
 
-        lblDocNo.Visibility = Windows.Visibility.Hidden
-        DocNo.Visibility = Windows.Visibility.Hidden
-        lblLastEntry.Visibility = Windows.Visibility.Hidden
-        Label1.Visibility = Windows.Visibility.Hidden
+        lblDocNo.Visibility = Visibility.Hidden
+        DocNo.Visibility = Visibility.Hidden
+        lblLastEntry.Visibility = Visibility.Hidden
+        Label1.Visibility = Visibility.Hidden
 
         bm.Fields = New String() {MainId, MainId2, SubId, "DayDate", "ToId", "Notes", "Total", "DocNo", "TotalPrice", "TotalNo", "TotalPriceBeforeDiscount", "Per1", "Per2", "Val1", "Val2", "Nolon"}
         bm.control = New Control() {StoreId, txtFlag, InvoiceNo, DayDate, ToId, Notes, TotalWeight, DocNo, TotalPrice, TotalNo, TotalPriceBeforeDiscount, Per1, Per2, Val1, Val2, Nolon}
@@ -154,10 +154,10 @@ Public Class SalesFreezing
         G.Columns(GC.Price).Visible = False
         G.Columns(GC.Value).Visible = False
 
-        lblTotalNo.Visibility = Windows.Visibility.Hidden
-        TotalNo.Visibility = Windows.Visibility.Hidden
-        lblTotalPrice.Visibility = Windows.Visibility.Hidden
-        TotalPrice.Visibility = Windows.Visibility.Hidden
+        lblTotalNo.Visibility = Visibility.Hidden
+        TotalNo.Visibility = Visibility.Hidden
+        lblTotalPrice.Visibility = Visibility.Hidden
+        TotalPrice.Visibility = Visibility.Hidden
 
         If Flag = FlagState.إذن_إضافة_تحت_التعبئة Or Flag = FlagState.إذن_توريد_تحت_التعبئة Or Flag = FlagState.صرف_تحت_التعبئة Or Flag = FlagState.مرتجع_صرف_تحت_التعبئة Then
             G.Columns(GC.Brand).Visible = False
@@ -169,15 +169,15 @@ Public Class SalesFreezing
         If Flag = FlagState.صرف_نهائى Or Flag = FlagState.مرتجع_صرف_نهائى Then
             G.Columns(GC.Price).Visible = True
             G.Columns(GC.Value).Visible = True
-            lblTotalNo.Visibility = Windows.Visibility.Visible
-            TotalNo.Visibility = Windows.Visibility.Visible
-            lblTotalPrice.Visibility = Windows.Visibility.Visible
-            TotalPrice.Visibility = Windows.Visibility.Visible
+            lblTotalNo.Visibility = Visibility.Visible
+            TotalNo.Visibility = Visibility.Visible
+            lblTotalPrice.Visibility = Visibility.Visible
+            TotalPrice.Visibility = Visibility.Visible
         End If
 
         If Flag = FlagState.إذن_توريد_نهائى Then
-            lblTotalNo.Visibility = Windows.Visibility.Visible
-            TotalNo.Visibility = Windows.Visibility.Visible
+            lblTotalNo.Visibility = Visibility.Visible
+            TotalNo.Visibility = Visibility.Visible
         End If
 
         AddHandler G.CellEndEdit, AddressOf GridCalcRow
@@ -523,7 +523,7 @@ Br:
         If Not CType(sender, Button).IsEnabled Then Return
 
 
-        If ToId.Visibility = Windows.Visibility.Visible AndAlso ToId.Text.Trim = "" Then
+        If ToId.Visibility = Visibility.Visible AndAlso ToId.Text.Trim = "" Then
             bm.ShowMSG("برجاء تحديد " & lblToId.Content)
             ToId.Focus()
             Return
@@ -725,6 +725,7 @@ Br:
 
     Private Sub RdoGrouping_Checked(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles RdoGrouping.Checked, RdoSearch.Checked
         Try
+            If txtID Is Nothing Then Return
             If RdoGrouping.IsChecked Then
                 txtID.Visibility = Visibility.Hidden
                 txtName.Visibility = Visibility.Hidden
@@ -782,7 +783,7 @@ Br:
 
     Sub SetStyle(ByVal x As Button)
         x.Style = Application.Current.FindResource("GlossyCloseButton")
-        x.VerticalContentAlignment = Windows.VerticalAlignment.Center
+        x.VerticalContentAlignment = VerticalAlignment.Center
         x.Width = 100
         x.Height = 50
         x.Margin = New Thickness(10, 10, 0, 0)

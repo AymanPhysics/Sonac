@@ -38,9 +38,9 @@ Public Class RPT2
 
 
         If MyLinkFile > 0 Then
-            lblMainAcc.Visibility = Windows.Visibility.Collapsed
-            MainAccNo.Visibility = Windows.Visibility.Collapsed
-            MainAccName.Visibility = Windows.Visibility.Collapsed
+            lblMainAcc.Visibility = Visibility.Collapsed
+            MainAccNo.Visibility = Visibility.Collapsed
+            MainAccName.Visibility = Visibility.Collapsed
             Select Case MyLinkFile
                 Case 1
                     lblSubAcc.Content = "Customer"

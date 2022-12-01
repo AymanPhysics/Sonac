@@ -172,10 +172,10 @@ Public Class BasicMethods
         If IsDecimal Then
             Dim s As Controls.TextBox = sender
             Dim ddd = Chr(e.Key)
-            If (e.Key = Windows.Input.Key.OemPeriod Or e.Key = Windows.Input.Key.Decimal) AndAlso Not s.Text.Contains(".") Then
+            If (e.Key = System.Windows.Input.Key.OemPeriod Or e.Key = System.Windows.Input.Key.Decimal) AndAlso Not s.Text.Contains(".") Then
                 Return
             End If
-            If (e.Key = Windows.Input.Key.OemMinus Or e.Key = Windows.Input.Key.Subtract) Then
+            If (e.Key = System.Windows.Input.Key.OemMinus Or e.Key = System.Windows.Input.Key.Subtract) Then
                 s.Text = -Val(s.Text)
                 e.Handled = True
                 Return
@@ -469,7 +469,7 @@ Public Class BasicMethods
     Public Function Save(ByVal ID() As String, ByVal IDValue() As String, Optional ByVal State As SaveState = SaveState.All) As Boolean
         ' DefineValues()
         If Not StopPro() Then Return False
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -625,7 +625,7 @@ EndFor:
     '___________________________Check IF Record Whith Condition is Exist__________________
     Public Function IF_Exists() As Boolean
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim dt As New DataTable
             Dim MyCmd As SqlCommand = c.CreateCommand()
@@ -649,7 +649,7 @@ EndFor:
     End Function
     Public Function IF_Exists(ByVal SqlStatment As String) As Boolean
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim dt As New DataTable
             Dim MyCmd As SqlCommand = c.CreateCommand()
@@ -757,7 +757,7 @@ EndFor:
         '			if(!TestEmpt())
         '				return
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             dt = New DataTable
             Dim MyCmd As SqlCommand = c.CreateCommand()
@@ -810,7 +810,7 @@ EndFor:
 
     Public Sub FirstLast(ByVal ID() As String, ByVal MaxOrMin As String, ByRef dt As DataTable)
         DefineValues()
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             dt = New DataTable
             Dim MyCmd As SqlCommand = c.CreateCommand()
@@ -845,7 +845,7 @@ EndFor:
     Public Sub NextPrevious(ByVal ID() As String, ByVal Value() As String, ByVal NextOrBack As String, ByRef dt As DataTable)
         DefineValues()
         dt = New DataTable
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Dim MyCmd As SqlCommand = c.CreateCommand()
         If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
 
@@ -1013,7 +1013,7 @@ A:
 
     Public Function RetrieveNameOnly(ByVal SqlStatment As String) As String
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1035,7 +1035,7 @@ A:
 
     Public Function GetMax(ByVal Length As Integer) As String
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1118,7 +1118,7 @@ A:
 
     Public Sub FillCombo(ByVal TableName As String, ByVal cbo As ComboBox, ByVal Condition As String, Optional ByVal c0 As String = "-", Optional OrderById As Boolean = False)
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             cbo.IsTextSearchEnabled = True
             Dim MyCmd As SqlCommand = c.CreateCommand()
@@ -1154,7 +1154,7 @@ A:
 
     Public Sub FillCombo(ByVal SqlStatment As String, ByVal cbo As ComboBox)
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             cbo.IsTextSearchEnabled = True
             Try
@@ -1189,7 +1189,7 @@ A:
 
     Public Sub FillListBox(ByVal SqlStatment As String, ByVal Lst As ListBox)
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1226,7 +1226,7 @@ A:
 
     Public Sub FillCombo(ByVal SqlStatment As String, ByVal cbo As Forms.DataGridViewComboBoxColumn)
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1254,7 +1254,7 @@ A:
 
     Public Sub FillCombo(ByVal SqlStatment As String, ByVal cbo As Forms.DataGridViewComboBoxCell)
 
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1378,7 +1378,7 @@ A:
     Public Function ExecuteNonQuery(ByVal sqlstatment As String) As Boolean
 
         If Not StopPro() Then Return False
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1402,7 +1402,7 @@ A:
 
     End Function
     Public Function StopPro() As Boolean
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1428,7 +1428,7 @@ A:
     Public Function ExcuteAdapter(ByVal sqlstatment As String) As DataTable
 
         Dim dt As New DataTable()
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1458,7 +1458,7 @@ A:
     Public Function ExcuteAdapter(ByVal StoredName As String, ByVal ParaName() As String, ByVal ParaValue() As String) As DataTable
 
         Dim dt As New DataTable()
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1535,7 +1535,7 @@ A:
     End Sub
 
     Public Function ExcuteNonQuery(ByVal StoredName As String, ByVal ParaName() As String, ByVal ParaValue() As String) As Boolean
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1566,7 +1566,7 @@ A:
     Public Function ExcuteAdapter(ByVal StoredName As String, ByVal ParaName() As String, ByVal ParaValue() As Object, ByVal Type() As SqlDbType) As DataTable
 
         Dim dt As New DataTable()
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1598,7 +1598,7 @@ A:
     Public Function ExcuteNonQuery(ByVal StoredName As String, ByVal ParaName() As String, ByVal ParaValue() As Object, ByVal Type() As SqlDbType) As Boolean
 
         If Not StopPro() Then Return False
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1627,7 +1627,7 @@ A:
     Public Function ExecuteScalar(ByVal sqlstatment As String) As String
 
         If Not StopPro() Then Return ""
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1651,7 +1651,7 @@ A:
     Public Function ExecuteScalar(ByVal StoredName As String, ByVal ParaName() As String, ByVal ParaValue() As String) As String
 
         If Not StopPro() Then Return ""
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             Dim MyCmd As SqlCommand = c.CreateCommand()
             If MyCmd.Connection.State = ConnectionState.Closed Then MyCmd.Connection.Open()
@@ -1717,7 +1717,7 @@ A:
     Public Sub FillCombo(ByVal cbo As ComboBox, ByVal StoredName As String, ByVal ParaName() As String, ByVal ParaValue() As String)
 
         Dim dt As New DataTable()
-        Dim c As New SqlConnection(cmd.Connection.ConnectionString)
+        Dim c As New SqlConnection(con.ConnectionString)
         Try
             cbo.IsTextSearchEnabled = True
             Dim MyCmd As SqlCommand = c.CreateCommand()
@@ -1884,7 +1884,7 @@ A:
 
     Private Sub pictureBox_DragDrop(ByVal sender As Object, ByVal e As DragEventArgs)
         Dim ss() As String = e.Data.GetData(DataFormats.FileDrop)
-        Dim a As Windows.Media.ImageSource
+        Dim a As System.Windows.Media.ImageSource
         Dim dp As DependencyProperty
         a.SetCurrentValue(dp, ss(0))
         CType(sender, Controls.Image).Source = a
@@ -2039,7 +2039,7 @@ A:
         Try
             Dim OFD As New System.Windows.Forms.OpenFileDialog
             OFD.Filter = "Images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
-            If OFD.ShowDialog = Windows.Forms.DialogResult.OK Then
+            If OFD.ShowDialog = System.Windows.Forms.DialogResult.OK Then
                 Dim bi3 As New BitmapImage
                 bi3.BeginInit()
                 bi3.UriSource = New Uri(OFD.FileName, UriKind.RelativeOrAbsolute)

@@ -12,11 +12,11 @@ Public Class RPT14
         bm.FillCombo("Groups", CboMain, " where Flag=1")
 
         If Flag = 3 Or Flag = 4 Then
-            CboMain.Visibility = Windows.Visibility.Hidden
-            lblDayDate_Copy.Visibility = Windows.Visibility.Hidden
+            CboMain.Visibility = Visibility.Hidden
+            lblDayDate_Copy.Visibility = Visibility.Hidden
             LoadSuppliers(TreeView2, "select Id,Name from Suppliers order by Id")
             TabGroups1.Header = "الموردين"
-            WarpPanel1.Visibility = Windows.Visibility.Hidden
+            WarpPanel1.Visibility = Visibility.Hidden
         End If
 
         Dim MyNow As DateTime = bm.MyGetDate()

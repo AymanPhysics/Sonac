@@ -19,11 +19,11 @@ Public Class RPT15
                 LoadSuppliers(TreeView1, "select Id,Name from Customers order by Id")
                 Rdo2.Content = "حسب العميل"
             Case 3
-                WarpPanel1.Visibility = Windows.Visibility.Hidden
-                WarpPanel2.Visibility = Windows.Visibility.Hidden
+                WarpPanel1.Visibility = Visibility.Hidden
+                WarpPanel2.Visibility = Visibility.Hidden
             Case 4
-                WarpPanel1.Visibility = Windows.Visibility.Hidden
-                WarpPanel2.Visibility = Windows.Visibility.Visible
+                WarpPanel1.Visibility = Visibility.Hidden
+                WarpPanel2.Visibility = Visibility.Visible
         End Select
         Dim MyNow As DateTime = bm.MyGetDate()
         FromDate.SelectedDate = New DateTime(MyNow.Year, MyNow.Month, MyNow.Day, 0, 0, 0)

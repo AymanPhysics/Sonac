@@ -180,6 +180,7 @@
     <Compile Include="BankCash.vb">
       <DependentUpon>BankCash.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditConnection.xaml.vb" />
     <Compile Include="Statics.xaml.vb">
       <DependentUpon>Statics.xaml</DependentUpon>
     </Compile>
@@ -401,6 +402,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="BankCash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditConnection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

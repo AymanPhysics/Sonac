@@ -41,7 +41,7 @@ Namespace EmployeeTracker
             Try
                 lblMain.Text = ("O M E G A") & "                       " & Md.CompanyName & Md.UdlName.Replace("Connect", "")
                 If Not IsNothing(Md.ArName) Then
-                    lblMain.Text &= "                       " & Md.Currentpage & "                      " & ("Username") & ": " & IIf(Application.Current.MainWindow.FlowDirection = Windows.FlowDirection.LeftToRight, Md.EnName, Md.ArName)
+                    lblMain.Text &= "                       " & Md.Currentpage & "                      " & ("Username") & ": " & IIf(Application.Current.MainWindow.FlowDirection = FlowDirection.LeftToRight, Md.EnName, Md.ArName)
                 End If
                 lblMain.FlowDirection = Application.Current.MainWindow.FlowDirection
             Catch ex As Exception

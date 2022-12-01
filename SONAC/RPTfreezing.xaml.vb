@@ -24,9 +24,9 @@ Public Class RPTfreezing
         If bm.TestIsLoaded(Me) Then Return
 
         If Flag = 5 Then
-            Label2.Visibility = Windows.Visibility.Hidden
-            ComboBox1.Visibility = Windows.Visibility.Hidden
-            IsClosedOnly.Visibility = Windows.Visibility.Hidden
+            Label2.Visibility = Visibility.Hidden
+            ComboBox1.Visibility = Visibility.Hidden
+            IsClosedOnly.Visibility = Visibility.Hidden
         End If
 
         LoadCbo()

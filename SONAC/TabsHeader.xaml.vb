@@ -15,7 +15,7 @@
         TextBlock1.Text = MyTabHeader
         Button1.Visibility = WithClose
         Button1.IsTabStop = False
-        If Button1.Visibility = Windows.Visibility.Hidden Then
+        If Button1.Visibility = Visibility.Hidden Then
             TextBlock1.Margin = New Thickness(0)
         End If
     End Sub

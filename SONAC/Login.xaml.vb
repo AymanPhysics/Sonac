@@ -53,17 +53,22 @@ Public Class Login
         Dim dt As New DataTable("ddtt")
         dt.Columns.Add("Id")
         dt.Columns.Add("Name")
+        'For Each file In IO.Directory.GetFiles(System.Windows.Forms.Application.StartupPath)
+        '    If file.ToLower.EndsWith(".udl") AndAlso Not file.ToLower.EndsWith("connect.udl") Then
+        '        dt.Rows.Add(file.Split("\").Last.Replace(".udl", ""), file.Split("\").Last.Replace(".udl", ""))
+        '    End If
+        'Next
         For Each file In IO.Directory.GetFiles(System.Windows.Forms.Application.StartupPath)
-            If file.ToLower.EndsWith(".udl") AndAlso Not file.ToLower.EndsWith("connect.udl") Then
-                dt.Rows.Add(file.Split("\").Last.Replace(".udl", ""), file.Split("\").Last.Replace(".udl", ""))
+            If file.ToLower.EndsWith(".udldll") Then
+                dt.Rows.Add(file.ToLower.Split("\").Last.Replace(".udldll", ""), file.ToLower.Split("\").Last.Replace(".udldll", ""))
             End If
         Next
         Lop = True
         bm.FillCombo(dt, AccYear)
         Lop = False
         If dt.Rows.Count = 0 Then
-            lblAccYear.Visibility = Windows.Visibility.Hidden
-            AccYear.Visibility = Windows.Visibility.Hidden
+            lblAccYear.Visibility = Visibility.Hidden
+            AccYear.Visibility = Visibility.Hidden
             LoadEmployees()
             Username.Focus()
         Else
@@ -94,4 +99,16 @@ Public Class Login
         End Try
     End Sub
 
+    Private Sub btnEditCurrentConnection_Click(sender As Object, e As RoutedEventArgs) Handles btnEditCurrentConnection.Click
+        Dim frm As New EditConnection
+        frm.Show()
+        frm.Hide()
+        frm.AccYear.Text = Md.UdlName
+        frm.Database.Text = con.Database
+        frm.ServerName.Text = con.DataSource
+        frm.ShowDialog()
+        Login_Loaded(Nothing, Nothing)
+        AccYear.Text = Md.UdlName
+        AccYear_SelectionChanged(Nothing, Nothing)
+    End Sub
 End Class

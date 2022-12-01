@@ -45,7 +45,7 @@ Class MainWindow
         Md.CompanyTel = bm.ExecuteScalar("select CompanyTel from Statics")
         Dim L As New Login
         bm.SetImage(L.Img, "buttonscreen2.jpg")
-        btnChangeLanguage.Visibility = Windows.Visibility.Hidden
+        btnChangeLanguage.Visibility = Visibility.Hidden
 
 
         LoadTabs(L)
@@ -107,29 +107,91 @@ Class MainWindow
         TI.Focus()
     End Sub
 
+    'Function LoadConnection() As Boolean
+    '    If con.State = ConnectionState.Open Then Return True
+    '    Dim st As New StreamReader(Md.UdlName & ".udl")
+    '    Dim s As String = ""
+    '    st.ReadLine()
+    '    st.ReadLine()
+    '    s += st.ReadLine
+    '    con.ConnectionString = s.Substring(20)
+    '    Dim cb As New SqlClient.SqlConnectionStringBuilder(con.ConnectionString)
+    '    Dim f As New Form1
+    '    con.ConnectionString = "Data Source=" & cb.DataSource & ";Initial Catalog=" & cb.InitialCatalog & ";Persist Security Info=True;User ID=" & cb.UserID & ";Password=" & cb.Password 'f.Password 
+    '    Try
+    '        con.Open()
+    '    Catch ex As Exception
+    '        bm.ShowMSG("Connection failed")
+    '        bol = True
+    '        Md.FourceExit = True
+    '        Application.Current.Shutdown()
+    '        Return False
+    '    End Try
+    '    cmd.Connection = con
+    '    Return True
+    'End Function
+
+
     Function LoadConnection() As Boolean
         If con.State = ConnectionState.Open Then Return True
-        Dim st As New StreamReader(Md.UdlName & ".udl")
-        Dim s As String = ""
-        st.ReadLine()
-        st.ReadLine()
-        s += st.ReadLine
-        con.ConnectionString = s.Substring(20)
+
+        If Md.UdlName = "" Then
+            For Each myfile As String In Directory.GetFiles(System.Windows.Forms.Application.StartupPath)
+                If myfile.ToLower.EndsWith(".udldll") Then
+                    Md.UdlName = myfile.ToLower.Replace(".udldll", "").Split("\").Last
+                End If
+            Next
+            If Md.UdlName = "" Then
+                Dim frm As New EditConnection
+                frm.Show()
+                frm.Hide()
+                frm.AccYear.Text = Md.UdlName
+                frm.ServerName.Text = con.DataSource
+                frm.Database.Text = con.Database
+                frm.ShowDialog()
+                If Not frm.Ok Then
+                    Application.Current.Shutdown()
+                    Return False
+                End If
+            End If
+        End If
+
+        Dim st As New StreamReader(Md.UdlName & ".udldll")
+        Dim s As String = st.ReadLine
+        st.Close()
+        st.Dispose()
+        If con.State = ConnectionState.Open Then con.Close()
+        con.ConnectionString = bm.Decrypt(s)
         Dim cb As New SqlClient.SqlConnectionStringBuilder(con.ConnectionString)
-        Dim f As New Form1
-        con.ConnectionString = "Data Source=" & cb.DataSource & ";Initial Catalog=" & cb.InitialCatalog & ";Persist Security Info=True;User ID=" & cb.UserID & ";Password=" & cb.Password 'f.Password 
+        'Dim f As New Form1
+        'con.ConnectionString = "Data Source=" & cb.DataSource & ";Initial Catalog=" & cb.InitialCatalog & ";Persist Security Info=True;User ID=" & cb.UserID & ";Password=" & cb.Password 'f.Password 
+        con.ConnectionString = cb.ConnectionString
+        con = New SqlClient.SqlConnection(cb.ConnectionString)
+
         Try
             con.Open()
+            con.Close()
         Catch ex As Exception
             bm.ShowMSG("Connection failed")
             bol = True
-            Md.FourceExit = True
-            Application.Current.Shutdown()
+            'Md.FourceExit = True
+            'Application.Current.Shutdown()
+
+            Dim frm As New EditConnection
+            frm.Show()
+            frm.Hide()
+            frm.AccYear.Text = Md.UdlName
+            frm.ServerName.Text = cb.DataSource
+            frm.Database.Text = cb.InitialCatalog
+            frm.ShowDialog()
+
             Return False
         End Try
-        cmd.Connection = con
         Return True
     End Function
+
+
+
     Public LogedIn As Boolean = False
     Public Flag As Integer = 1
 
@@ -158,9 +220,9 @@ Class MainWindow
         End If
 
 
-        FlowDirection = Windows.FlowDirection.LeftToRight
-        FlowDirection = Windows.FlowDirection.RightToLeft
-        
+        FlowDirection = FlowDirection.LeftToRight
+        FlowDirection = FlowDirection.RightToLeft
+
         If MainGrid.Children(0).GetType.ToString = "System.Windows.Controls.Frame" Then CType(MainGrid.Children(0), Frame).Refresh()
 
     End Sub
@@ -195,6 +257,6 @@ Class MainWindow
     End Sub
 
     Private Sub btnMinimize_Click(sender As Object, e As RoutedEventArgs) Handles btnMinimize.Click
-        WindowState = Windows.WindowState.Minimized
+        WindowState = WindowState.Minimized
     End Sub
 End Class

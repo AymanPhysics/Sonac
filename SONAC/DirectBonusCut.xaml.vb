@@ -168,18 +168,18 @@ Public Class DirectBonusCut
             Label6.Content = IsVal.SelectedItem.Content
             Select Case IsVal.SelectedIndex
                 Case 0
-                    Value.Visibility = Windows.Visibility.Hidden
-                    hh.Visibility = Windows.Visibility.Visible
-                    mm.Visibility = Windows.Visibility.Visible
-                    lblhh.Visibility = Windows.Visibility.Visible
-                    lblmm.Visibility = Windows.Visibility.Visible
+                    Value.Visibility = Visibility.Hidden
+                    hh.Visibility = Visibility.Visible
+                    mm.Visibility = Visibility.Visible
+                    lblhh.Visibility = Visibility.Visible
+                    lblmm.Visibility = Visibility.Visible
                     Value.Text = 0
                 Case 1, 2
-                    Value.Visibility = Windows.Visibility.Visible
-                    hh.Visibility = Windows.Visibility.Hidden
-                    mm.Visibility = Windows.Visibility.Hidden
-                    lblhh.Visibility = Windows.Visibility.Hidden
-                    lblmm.Visibility = Windows.Visibility.Hidden
+                    Value.Visibility = Visibility.Visible
+                    hh.Visibility = Visibility.Hidden
+                    mm.Visibility = Visibility.Hidden
+                    lblhh.Visibility = Visibility.Hidden
+                    lblmm.Visibility = Visibility.Hidden
                     hh.Text = 0
                     mm.Text = 0
             End Select

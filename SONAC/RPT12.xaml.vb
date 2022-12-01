@@ -8,12 +8,12 @@ Public Class RPT12
     Public RPTFlag As Integer = 0
 
     Public Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles Button2.Click
-        If StoreId.Visibility = Windows.Visibility.Visible AndAlso StoreId.Text.Trim = "" Then
+        If StoreId.Visibility = Visibility.Visible AndAlso StoreId.Text.Trim = "" Then
             bm.ShowMSG("برجاء تحديد المخزن")
             StoreId.Focus()
             Return
         End If
-        If ItemId.Visibility = Windows.Visibility.Visible AndAlso ItemId.Text.Trim = "" Then
+        If ItemId.Visibility = Visibility.Visible AndAlso ItemId.Text.Trim = "" Then
             bm.ShowMSG("برجاء تحديد الصنف")
             ItemId.Focus()
             Return
@@ -65,48 +65,48 @@ Public Class RPT12
 
         Select Case Flag
             Case 1, 10
-                P.Visibility = Windows.Visibility.Hidden
-                Z.Visibility = Windows.Visibility.Hidden
-                N.Visibility = Windows.Visibility.Hidden
+                P.Visibility = Visibility.Hidden
+                Z.Visibility = Visibility.Hidden
+                N.Visibility = Visibility.Hidden
             Case 2, 4, 5, 7, 8
-                lblItemId.Visibility = Windows.Visibility.Hidden
-                ItemId.Visibility = Windows.Visibility.Hidden
-                ItemName.Visibility = Windows.Visibility.Hidden
+                lblItemId.Visibility = Visibility.Hidden
+                ItemId.Visibility = Visibility.Hidden
+                ItemName.Visibility = Visibility.Hidden
             Case 3, 6, 9, 12
-                lblStoreId.Visibility = Windows.Visibility.Hidden
-                StoreId.Visibility = Windows.Visibility.Hidden
-                StoreName.Visibility = Windows.Visibility.Hidden
+                lblStoreId.Visibility = Visibility.Hidden
+                StoreId.Visibility = Visibility.Hidden
+                StoreName.Visibility = Visibility.Hidden
 
-                lblItemId.Visibility = Windows.Visibility.Hidden
-                ItemId.Visibility = Windows.Visibility.Hidden
-                ItemName.Visibility = Windows.Visibility.Hidden
+                lblItemId.Visibility = Visibility.Hidden
+                ItemId.Visibility = Visibility.Hidden
+                ItemName.Visibility = Visibility.Hidden
         End Select
 
         If Flag = 11 Then
-            P.Visibility = Windows.Visibility.Hidden
-            Z.Visibility = Windows.Visibility.Hidden
-            N.Visibility = Windows.Visibility.Hidden
+            P.Visibility = Visibility.Hidden
+            Z.Visibility = Visibility.Hidden
+            N.Visibility = Visibility.Hidden
 
-            lblStoreId.Visibility = Windows.Visibility.Hidden
-            StoreId.Visibility = Windows.Visibility.Hidden
-            StoreName.Visibility = Windows.Visibility.Hidden
+            lblStoreId.Visibility = Visibility.Hidden
+            StoreId.Visibility = Visibility.Hidden
+            StoreName.Visibility = Visibility.Hidden
         End If
 
         If Flag = 1 Or Flag = 10 Or Flag = 11 Or Flag = 12 Then
-            lblGroupId.Visibility = Windows.Visibility.Hidden
-            GroupId.Visibility = Windows.Visibility.Hidden
-            GroupName.Visibility = Windows.Visibility.Hidden
+            lblGroupId.Visibility = Visibility.Hidden
+            GroupId.Visibility = Visibility.Hidden
+            GroupName.Visibility = Visibility.Hidden
 
-            lblTypeId.Visibility = Windows.Visibility.Hidden
-            TypeId.Visibility = Windows.Visibility.Hidden
-            TypeName.Visibility = Windows.Visibility.Hidden
+            lblTypeId.Visibility = Visibility.Hidden
+            TypeId.Visibility = Visibility.Hidden
+            TypeName.Visibility = Visibility.Hidden
         End If
 
         If (Flag = 1 Or Flag = 8 Or Flag = 9 Or Flag = 10) And RPTFlag <> 1 Then
         Else
-            lblBrand.Visibility = Windows.Visibility.Hidden
-            BrandId.Visibility = Windows.Visibility.Hidden
-            BrandName.Visibility = Windows.Visibility.Hidden
+            lblBrand.Visibility = Visibility.Hidden
+            BrandId.Visibility = Visibility.Hidden
+            BrandName.Visibility = Visibility.Hidden
         End If
 
         Dim MyNow As DateTime = bm.MyGetDate()

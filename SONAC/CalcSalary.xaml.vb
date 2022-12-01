@@ -49,9 +49,9 @@ Public Class CalcSalary
         lblFromDate_Copy.SetResourceReference(System.Windows.Controls.Label.ContentProperty, "Year")
 
         If Flag <> 5 Then
-            lblTaxAcc.Visibility = Windows.Visibility.Hidden
-            TaxAccNo.Visibility = Windows.Visibility.Hidden
-            TaxAccName.Visibility = Windows.Visibility.Hidden
+            lblTaxAcc.Visibility = Visibility.Hidden
+            TaxAccNo.Visibility = Visibility.Hidden
+            TaxAccName.Visibility = Visibility.Hidden
         End If
     End Sub
 

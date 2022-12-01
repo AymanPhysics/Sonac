@@ -25,22 +25,22 @@ Public Class RPT1
                 LoadSuppliers(TreeView1, "select Id,Name from Customers order by Id")
                 Rdo2.Content = "حسب العميل"
                 If Flag = 5 Then
-                    WarpPanel1.Visibility = Windows.Visibility.Hidden
-                    WarpPanel2.Visibility = Windows.Visibility.Hidden
+                    WarpPanel1.Visibility = Visibility.Hidden
+                    WarpPanel2.Visibility = Visibility.Hidden
                 End If
             Case 3, 4
                 PanelGroups.Margin = PanelGroups_Copy.Margin
-                PanelGroups_Copy.Visibility = Windows.Visibility.Hidden
+                PanelGroups_Copy.Visibility = Visibility.Hidden
                 btnNotSelectAll1.Margin = btnNotSelectAll2.Margin
                 btnSelectAll1.Margin = btnSelectAll2.Margin
-                btnNotSelectAll2.Visibility = Windows.Visibility.Hidden
-                btnSelectAll2.Visibility = Windows.Visibility.Hidden
+                btnNotSelectAll2.Visibility = Visibility.Hidden
+                btnSelectAll2.Visibility = Visibility.Hidden
                 LoadSuppliers(TreeView1, "select Id,Name from Suppliers order by Id")
-                WarpPanel1.Visibility = Windows.Visibility.Hidden
-                If Flag = 3 Then WarpPanel2.Visibility = Windows.Visibility.Hidden
+                WarpPanel1.Visibility = Visibility.Hidden
+                If Flag = 3 Then WarpPanel2.Visibility = Visibility.Hidden
                 If Flag = 4 Then
                     Rdo4.IsChecked = True
-                    Rdo5.Visibility = Windows.Visibility.Hidden
+                    Rdo5.Visibility = Visibility.Hidden
                 End If
         End Select
 

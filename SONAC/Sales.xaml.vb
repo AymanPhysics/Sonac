@@ -594,6 +594,7 @@ Br:
     End Sub
     Private Sub RdoCash_Checked(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles RdoCash.Checked, RdoVisa.Checked, RdoCashVisa.Checked, RdoFuture.Checked, RdoCashFuture.Checked, RdoEmployees.Checked
         Try
+            If PaymentType Is Nothing Then Return
             GroupBoxPaymentType.Header = "طريقة الدفع : " & CType(sender, RadioButton).Content
             PaymentType.Text = 0
             If RdoCash.IsChecked Then
@@ -614,11 +615,11 @@ Br:
 
         Try
             If RdoCashVisa.IsChecked OrElse RdoCashFuture.IsChecked Then
-                CashValue.Visibility = Windows.Visibility.Visible
-                lblCashValue.Visibility = Windows.Visibility.Visible
+                CashValue.Visibility = Visibility.Visible
+                lblCashValue.Visibility = Visibility.Visible
             Else
-                CashValue.Visibility = Windows.Visibility.Hidden
-                lblCashValue.Visibility = Windows.Visibility.Hidden
+                CashValue.Visibility = Visibility.Hidden
+                lblCashValue.Visibility = Visibility.Hidden
                 CashValue.Text = 0
             End If
         Catch ex As Exception
@@ -809,37 +810,37 @@ Br:
         If Not CType(sender, Button).IsEnabled Then Return
 
 
-        If ToId.Visibility = Windows.Visibility.Visible AndAlso ToId.Text.Trim = "" AndAlso Not TestSalesAndReturn() Then
+        If ToId.Visibility = Visibility.Visible AndAlso ToId.Text.Trim = "" AndAlso Not TestSalesAndReturn() Then
             bm.ShowMSG("برجاء تحديد " & lblToId.Content)
             ToId.Focus()
             Return
         End If
-        If TableId.Visibility = Windows.Visibility.Visible AndAlso TableId.Text.Trim = "" Then
+        If TableId.Visibility = Visibility.Visible AndAlso TableId.Text.Trim = "" Then
             bm.ShowMSG("برجاء تحديد رقم المائدة")
             TableId.Focus()
             Return
         End If
-        If TableSubId.Visibility = Windows.Visibility.Visible AndAlso TableSubId.Text.Trim = "" Then
+        If TableSubId.Visibility = Visibility.Visible AndAlso TableSubId.Text.Trim = "" Then
             bm.ShowMSG("برجاء تحديد رقم الفرعى من المائدة")
             TableSubId.Focus()
             Return
         End If
-        If NoOfPersons.Visibility = Windows.Visibility.Visible AndAlso NoOfPersons.Text.Trim = "" Then
+        If NoOfPersons.Visibility = Visibility.Visible AndAlso NoOfPersons.Text.Trim = "" Then
             bm.ShowMSG("برجاء تحديد عدد الأفراد")
             NoOfPersons.Focus()
             Return
         End If
-        'If CashierId.Visibility = Windows.Visibility.Visible AndAlso CashierId.Text.Trim = "" Then
+        'If CashierId.Visibility = Visibility.Visible AndAlso CashierId.Text.Trim = "" Then
         '    bm.ShowMSG("برجاء تحديد " & lblCashier.Content)
         '    CashierId.Focus()
         '    Return
         'End If
-        If WaiterId.Visibility = Windows.Visibility.Visible AndAlso WaiterId.Text.Trim = "" Then
+        If WaiterId.Visibility = Visibility.Visible AndAlso WaiterId.Text.Trim = "" Then
             bm.ShowMSG("برجاء تحديد الويتر")
             WaiterId.Focus()
             Return
         End If
-        If DeliverymanId.Visibility = Windows.Visibility.Visible AndAlso DeliverymanId.Text.Trim = "" Then
+        If DeliverymanId.Visibility = Visibility.Visible AndAlso DeliverymanId.Text.Trim = "" Then
             bm.ShowMSG("برجاء تحديد الطيار")
             DeliverymanId.Focus()
             Return
@@ -851,43 +852,43 @@ Br:
         End If
 
 
-        If AccNo1.Visibility = Windows.Visibility.Visible AndAlso AccNo1.Text.Trim = "" AndAlso Val(Val1.Text) <> 0 Then
+        If AccNo1.Visibility = Visibility.Visible AndAlso AccNo1.Text.Trim = "" AndAlso Val(Val1.Text) <> 0 Then
             bm.ShowMSG("برجاء تحديد الحساب")
             AccNo1.Focus()
             Return
         End If
-        If AccNo2.Visibility = Windows.Visibility.Visible AndAlso AccNo2.Text.Trim = "" AndAlso Val(Val2.Text) <> 0 Then
+        If AccNo2.Visibility = Visibility.Visible AndAlso AccNo2.Text.Trim = "" AndAlso Val(Val2.Text) <> 0 Then
             bm.ShowMSG("برجاء تحديد الحساب")
             AccNo2.Focus()
             Return
         End If
-        If AccNo3.Visibility = Windows.Visibility.Visible AndAlso AccNo3.Text.Trim = "" AndAlso Val(Val3.Text) <> 0 Then
+        If AccNo3.Visibility = Visibility.Visible AndAlso AccNo3.Text.Trim = "" AndAlso Val(Val3.Text) <> 0 Then
             bm.ShowMSG("برجاء تحديد الحساب")
             AccNo3.Focus()
             Return
         End If
-        If AccNo4.Visibility = Windows.Visibility.Visible AndAlso AccNo4.Text.Trim = "" AndAlso Val(Val4.Text) <> 0 Then
+        If AccNo4.Visibility = Visibility.Visible AndAlso AccNo4.Text.Trim = "" AndAlso Val(Val4.Text) <> 0 Then
             bm.ShowMSG("برجاء تحديد الحساب")
             AccNo4.Focus()
             Return
         End If
 
-        If AccType1.Visibility = Windows.Visibility.Visible AndAlso AccType1.SelectedIndex < 1 AndAlso Val(Val1.Text) <> 0 Then
+        If AccType1.Visibility = Visibility.Visible AndAlso AccType1.SelectedIndex < 1 AndAlso Val(Val1.Text) <> 0 Then
             bm.ShowMSG("برجاء تحديد النوع")
             AccType1.Focus()
             Return
         End If
-        If AccType2.Visibility = Windows.Visibility.Visible AndAlso AccType2.SelectedIndex < 1 AndAlso Val(Val2.Text) <> 0 Then
+        If AccType2.Visibility = Visibility.Visible AndAlso AccType2.SelectedIndex < 1 AndAlso Val(Val2.Text) <> 0 Then
             bm.ShowMSG("برجاء تحديد النوع")
             AccType2.Focus()
             Return
         End If
-        If AccType3.Visibility = Windows.Visibility.Visible AndAlso AccType3.SelectedIndex < 1 AndAlso Val(Val3.Text) <> 0 Then
+        If AccType3.Visibility = Visibility.Visible AndAlso AccType3.SelectedIndex < 1 AndAlso Val(Val3.Text) <> 0 Then
             bm.ShowMSG("برجاء تحديد النوع")
             AccType3.Focus()
             Return
         End If
-        If AccType4.Visibility = Windows.Visibility.Visible AndAlso AccType4.SelectedIndex < 1 AndAlso Val(Val4.Text) <> 0 Then
+        If AccType4.Visibility = Visibility.Visible AndAlso AccType4.SelectedIndex < 1 AndAlso Val(Val4.Text) <> 0 Then
             bm.ShowMSG("برجاء تحديد النوع")
             AccType4.Focus()
             Return
@@ -1263,6 +1264,8 @@ Br:
 
     Private Sub RdoGrouping_Checked(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles RdoGrouping.Checked, RdoSearch.Checked
         Try
+
+            If txtID Is Nothing Then Return
             If RdoGrouping.IsChecked Then
                 txtID.Visibility = Visibility.Hidden
                 txtName.Visibility = Visibility.Hidden
@@ -1488,7 +1491,7 @@ Br:
 
     Sub SetStyle(ByVal x As Button)
         x.Style = Application.Current.FindResource("GlossyCloseButton")
-        x.VerticalContentAlignment = Windows.VerticalAlignment.Center
+        x.VerticalContentAlignment = VerticalAlignment.Center
         x.Width = 100
         x.Height = 50
         x.Margin = New Thickness(10, 10, 0, 0)
@@ -1498,7 +1501,7 @@ Br:
     Private Sub HideAcc()
         PanelItems.Margin = New Thickness(PanelItems.Margin.Left, PanelItems.Margin.Top, PanelItems.Margin.Right, 8)
         HelpGD.Margin = New Thickness(HelpGD.Margin.Left, HelpGD.Margin.Top, HelpGD.Margin.Right, 8)
-        GAcc.Visibility = Windows.Visibility.Hidden
+        GAcc.Visibility = Visibility.Hidden
 
         GroupBoxPaymentType.Visibility = Visibility.Hidden
     End Sub

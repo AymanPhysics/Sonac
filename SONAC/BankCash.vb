@@ -201,6 +201,7 @@ Public Class BankCash
 
     Private Sub RdoCash_Checked(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles RdoCash.Checked, RdoCheck.Checked
         Try
+            If Cash Is Nothing Then Return
             Cash.Text = 0
             If RdoCash.IsChecked Then
                 Cash.Text = 1
@@ -212,23 +213,23 @@ Public Class BankCash
 
         Try
             If RdoCheck.IsChecked Then
-                SheekNo.Visibility = Windows.Visibility.Visible
-                lblSheekNo.Visibility = Windows.Visibility.Visible
+                SheekNo.Visibility = Visibility.Visible
+                lblSheekNo.Visibility = Visibility.Visible
 
-                SheekPerson.Visibility = Windows.Visibility.Visible
-                lblSheekPerson.Visibility = Windows.Visibility.Visible
+                SheekPerson.Visibility = Visibility.Visible
+                lblSheekPerson.Visibility = Visibility.Visible
 
-                SheekDate.Visibility = Windows.Visibility.Visible
-                lblSheekDate.Visibility = Windows.Visibility.Visible
+                SheekDate.Visibility = Visibility.Visible
+                lblSheekDate.Visibility = Visibility.Visible
             Else
-                SheekNo.Visibility = Windows.Visibility.Hidden
-                lblSheekNo.Visibility = Windows.Visibility.Hidden
+                SheekNo.Visibility = Visibility.Hidden
+                lblSheekNo.Visibility = Visibility.Hidden
 
-                SheekPerson.Visibility = Windows.Visibility.Hidden
-                lblSheekPerson.Visibility = Windows.Visibility.Hidden
+                SheekPerson.Visibility = Visibility.Hidden
+                lblSheekPerson.Visibility = Visibility.Hidden
 
-                SheekDate.Visibility = Windows.Visibility.Hidden
-                lblSheekDate.Visibility = Windows.Visibility.Hidden
+                SheekDate.Visibility = Visibility.Hidden
+                lblSheekDate.Visibility = Visibility.Hidden
             End If
         Catch ex As Exception
         End Try

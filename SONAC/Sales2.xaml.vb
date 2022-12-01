@@ -316,7 +316,7 @@ Br:
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         If Not CType(sender, Button).IsEnabled Then Return
 
-        If ToId.Visibility = Windows.Visibility.Visible AndAlso ToId.Text.Trim = "" Then
+        If ToId.Visibility = Visibility.Visible AndAlso ToId.Text.Trim = "" Then
             bm.ShowMSG("برجاء تحديد " & lblToId.Content)
             ToId.Focus()
             Return
@@ -521,7 +521,7 @@ Br:
 
     Sub SetStyle(ByVal x As Button)
         x.Style = Application.Current.FindResource("GlossyCloseButton")
-        x.VerticalContentAlignment = Windows.VerticalAlignment.Center
+        x.VerticalContentAlignment = VerticalAlignment.Center
         x.Width = 100
         x.Height = 50
         x.Margin = New Thickness(10, 10, 0, 0)
